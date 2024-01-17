@@ -2,6 +2,11 @@ name: CI
 
 on: [push, pull_request]
 
+# Causes pushes to a branch to cancel existing workflow runs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   # This job downloads and stores `cross` as an artifact, so that it can be
   # redownloaded across all of the jobs. Currently this copied pasted between
