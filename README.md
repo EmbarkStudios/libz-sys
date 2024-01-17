@@ -33,15 +33,15 @@ if any library crate in your dependency graph wants stock zlib, `libz-sys` will
 use stock zlib.
 
 Library crates depending on `libz-sys` should use:
+
 ```
 libz-sys = { version = "1.1.0", default-features = false, features = ["libc"] }
 ```
+
 (Omit the `libc` feature if you don't require the corresponding functions.)
 
 This allows higher-level crates depending on your library to opt into zlib-ng
 if desired.
-
-Building zlib-ng requires `cmake`.
 
 Crates that don't require compatibility with the zlib C API, and use zlib
 exclusively from Rust or support the zlib-ng native C API (prefixed with
@@ -60,10 +60,10 @@ but we don't guarantee these will continue to work.
 
 This project is licensed under either of
 
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or
-   http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or
-   http://opensource.org/licenses/MIT)
+* Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or
+   <http://www.apache.org/licenses/LICENSE-2.0>)
+* MIT license ([LICENSE-MIT](LICENSE-MIT) or
+   <http://opensource.org/licenses/MIT>)
 
 at your option.
 
